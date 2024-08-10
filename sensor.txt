@@ -1,0 +1,64 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void slidingWindow(const vector<int>&vect,int limit)
+{    
+	int i;
+	int j;
+//	limit=limit-1;
+     int n=vect.size()-limit+1;
+    i=0;
+    j=limit;
+    int k;
+    
+	
+
+	int currentsum=0;
+	while(n!=0){
+        
+        k=i;
+		while(k<j){
+			currentsum=currentsum+vect[k];
+			k++;
+		}
+		j++;
+		i++;
+		cout<<currentsum<<" ";
+		currentsum=0;
+		
+		n--;
+	}
+		
+	
+	
+}
+int main() 
+{
+	vector<int>vect;
+	int n;
+	int limit;
+	cin>>n;
+	if(n>10){
+		cout<<"Not valid range";
+		return 0;
+	}
+	int val;
+	while(n!=0){
+		cin>>val;
+	//	if(val>0){
+			
+			//	}
+	//	else{
+			vect.push_back(val);
+	//	}
+		n--;
+	}
+	cin>>limit;
+	cout<<"Sliding window sums "<<endl;
+
+	slidingWindow(vect,limit);	
+
+    return 0;
+}
